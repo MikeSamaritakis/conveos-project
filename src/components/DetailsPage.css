@@ -1,0 +1,44 @@
+/* Style for the main container */
+.details-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Style for the title */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* Paragraph styling */
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Style for strong elements to emphasize text */
+strong {
+    color: #000;
+}
+
+/* Image styling */
+img {
+    display: block;
+    max-width: 100%; /* Ensures the image is responsive */
+    height: auto;
+    margin: 20px auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive text alignment */
+@media (max-width: 768px) {
+    h1, p {
+        text-align: center;
+    }
+}

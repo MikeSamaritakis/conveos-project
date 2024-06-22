@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from './Card'; // Assuming each item is rendered as a Card
+import './SearchPage.css';
 
 function SearchPage() {
   const [input, setInput] = useState('');
@@ -10,7 +11,7 @@ function SearchPage() {
   const handleSearch = async (event) => {
     event.preventDefault();
     if (!input) {
-      alert("Please enter a valid movie title.");
+      alert("Please enter a valid title.");
       return;
     }
 
@@ -36,6 +37,9 @@ function SearchPage() {
 
   const handleNavigate = (movie) => {
     navigate('/search-results', { state: { movie } });
+     
+    // Open the new path in a new tab
+    //window.open(window.location.origin + `/search-results/${movie.Title}`, '_blank');
   };
 
   return (
@@ -45,7 +49,7 @@ function SearchPage() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter movie title here..."
+          placeholder="Enter title here..."
         />
         <button type="submit">Search</button>
       </div>
