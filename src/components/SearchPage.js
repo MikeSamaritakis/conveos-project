@@ -30,6 +30,11 @@ function SearchPage() {
       const response = await fetch(url, options);
       const data = await response.json();
       setMovies(data.Search); // Store the fetched movies
+
+      if (response === 'False') {
+        alert("No results found. Please try again.");
+      }
+
     } catch (error) {
       console.error("Error fetching data: ", error);
     }
@@ -38,9 +43,13 @@ function SearchPage() {
   const handleNavigate = (movie) => {
     navigate('/search-results', { state: { movie } });
      
-    // Open the new path in a new tab
-    //window.open(window.location.origin + `/search-results/${movie.Title}`, '_blank');
+    // // Open the new path in a new tab
+    // window.open(window.location.origin + `/search-results/${movie.Title}`, '_blank');
+    console.log(movie);
+
   };
+
+
 
   return (
     <form onSubmit={handleSearch}>

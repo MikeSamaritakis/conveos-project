@@ -1,8 +1,11 @@
 /* Header.css */
 header {
-    background-color: #333;
-    color: white;
+    top: auto; 
+}
+
+header h1 {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     text-align: center;
-  }
-  
+}

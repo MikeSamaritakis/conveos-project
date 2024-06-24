@@ -12,6 +12,7 @@ function DetailsPage() {
       <p><strong>Year:</strong> {movie.Year}</p>
       <p><strong>Type:</strong> {movie.Type}</p>
       <img src={movie.Poster} alt={`Poster of ${movie.Title}`} />
+      <p>{movie.DetailsPage}</p>
       <p>{movie.fullPlot}</p> 
     </div>
   );
