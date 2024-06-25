@@ -6,7 +6,6 @@ import './SearchPage.css';
 function SearchPage() {
   const [input, setInput] = useState('');
   const [movies, setMovies] = useState([]); // State to store the list of movies
-  const [imdbmovie, setImdbMovie] = useState(); // State to store the movie details
   const navigate = useNavigate();
 
   const handleSearch = async (event) => {
@@ -39,54 +38,11 @@ function SearchPage() {
     } catch (error) {
       console.error("Error fetching data: ", error);
     }
-  };
-
-
-  const fetchMovie = async (imdbID) => {
-    try {
-      const imdbresponse = await fetch(`https://imdb188.p.rapidapi.com/api/v1/searchIMDB?query=${imdbID}`, {
-        method: 'GET',
-        headers: {
-                'Content-Type': 'application/json',
-                'x-rapidapi-key': '5c03c687c7msh4b22b197f5a764ep1a6953jsnda62c876fafc',
-                'x-rapidapi-host': 'imdb188.p.rapidapi.com'
-        }
-      });
-  
-      if (!imdbresponse.ok) {
-        throw new Error(`HTTP error! status: ${imdbresponse.status}`);
-      }
-  
-      const imdbmovie = await imdbresponse.json();
-
-      //console.log(imdbmovie);
-      setImdbMovie(imdbmovie); // Store the fetched movie details
-
-      //setImdbMovie(imdbmovie); // Store the fetched movies
-      //console.log(imdbmovie);
-    } catch (error) {
-      console.error('Error fetching movie:', error);
-    }
-  };
-  
+  };  
 
   const handleNavigate = (movie) => {
-    //navigate('/search-results', { state: { movie } });
-     
-    // // Open the new path in a new tab
-    //window.open(window.location.origin + `/search-results/${movie.Title}`, '_blank');
-    //console.log(movie.Title);
-    //window.open(`https://www.imdb.com/title/${movie.imdbID}`);
-
-    fetchMovie(movie.imdbID);
-
-    console.log(imdbmovie.data[0].title);
-
-    // IMPLEMENT THE SECOND API CALL HERE
-
+    navigate('/search-results', { state: { movie } });
   };
-
-
 
   return (
     <form onSubmit={handleSearch}>
