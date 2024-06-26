@@ -21,8 +21,8 @@ function SearchPage() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'x-rapidapi-key': '5c03c687c7msh4b22b197f5a764ep1a6953jsnda62c876fafc',
-        'x-rapidapi-host': 'movie-database-alternative.p.rapidapi.com'
+        // 'x-rapidapi-key': 'KEY_HERE', 
+        // 'x-rapidapi-host': 'movie-database-alternative.p.rapidapi.com'
       }
     };
 

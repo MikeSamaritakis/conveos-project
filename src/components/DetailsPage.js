@@ -11,8 +11,8 @@ function DetailsPage() {
         method: 'GET',
         headers: {
                 'Content-Type': 'application/json',
-                'x-rapidapi-key': '5c03c687c7msh4b22b197f5a764ep1a6953jsnda62c876fafc',
-                'x-rapidapi-host': 'imdb188.p.rapidapi.com'
+                // 'x-rapidapi-key': 'KEY_HERE',
+                // 'x-rapidapi-host': 'imdb188.p.rapidapi.com'            
         }
       });
   
@@ -27,12 +27,6 @@ function DetailsPage() {
     }
   };
 
-
-
-  // if (!imdbdata.data[0].title) {
-  //   return <div>Loading...</div>; // Render a loading message if the movie or its title is not defined
-  // }
-
   // navigate('/search-results', { state: { imdbdata } });
   //return <div>{imdbdata.data[0].title}</div>;
   
@@ -42,9 +36,15 @@ function DetailsPage() {
 
   //console.log(movie.imdbID);
 
+  console.log(movie.imdbID);
+
   fetchMovie(movie.imdbID);
 
   console.log(imdbmovie);
+
+  if (!imdbmovie) {
+    return <div>Loading...</div>; // Render a loading message if the movie or its title is not defined
+  }
 
   return <div>{imdbmovie.data[0].title}
   id{imdbmovie.data[0].id}
